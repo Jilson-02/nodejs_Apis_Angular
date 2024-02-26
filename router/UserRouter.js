@@ -1,0 +1,14 @@
+import express from 'express';
+import { login,updateUsersPassword, updateUsersEmail, getUsers,createUsers,updateUsers,deleteUsers,getOneUser, getUsersByType} from '../controller/UserController.js';
+import  {verifyToken}  from '../middleware/auth.js';
+const rotuer = express.Router();
+rotuer.get('/user', getUsers);
+rotuer.get('/user/:id', getOneUser);
+rotuer.post('/register', createUsers);
+rotuer.put('/user/:id', updateUsers);
+rotuer.delete('/user/:id', deleteUsers);
+rotuer.post('/login', login);
+rotuer.put('/user/email/:id', updateUsersEmail);
+rotuer.put('/user/password/:id', updateUsersPassword);
+rotuer.get('/users/type/:type', getUsersByType);
+export const RouterUsuer = rotuer;
